@@ -1,0 +1,17 @@
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+ 
+-- Function to destroy the recoil object
+local function destroyRecoil()
+    local recoil = player:FindFirstChild("Recoil") -- Check if the "Recoil" exists
+    if recoil then
+        recoil:Destroy() -- Remove the recoil object
+        print("Recoil system disabled.")
+    end
+end
+ 
+-- Loop to continuously check for and destroy the "Recoil" object
+while true do
+    destroyRecoil()
+    wait(0.1) -- Short delay to prevent performance issues
+end
